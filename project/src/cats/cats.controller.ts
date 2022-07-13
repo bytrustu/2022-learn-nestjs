@@ -1,4 +1,4 @@
-import { Controller, Get, HttpException, HttpStatus, UseFilters } from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, UseFilters } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { HttpExceptionFilter } from '../http-exception.filter';
 
@@ -16,5 +16,11 @@ export class CatsController {
   getError() {
     throw new HttpException('api is broken', HttpStatus.BAD_REQUEST);
     return 'get call api'
+  }
+
+  @Get(':id')
+  getOneCat(@Param('id', ParseIntPipe) id) {
+    console.log(typeof id);
+    return `get call api ${id}`;
   }
 }
