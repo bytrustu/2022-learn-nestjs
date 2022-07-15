@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/project/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/cats/dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
