@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Get,
   HttpException,
@@ -11,6 +12,7 @@ import {
 import { CatsService } from './cats.service';
 import { HttpExceptionFilter } from '../common/exceptions/http-exception.filter';
 import { SuccessInterceptor } from '../common/interceptors/success.interceptor';
+import { CatsRequestDto } from './dto/cats.request.dto';
 
 @Controller('cats')
 @UseInterceptors(SuccessInterceptor)
@@ -18,15 +20,14 @@ import { SuccessInterceptor } from '../common/interceptors/success.interceptor';
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
-
   @Get()
   getCurrentCat() {
     return 'current cat';
   }
 
   @Post()
-  async signUp() {
-    return 'signup';
+  async signUp(@Body() body: CatsRequestDto) {
+    return this.catsService.signUp(body);
   }
 
   @Post('login')

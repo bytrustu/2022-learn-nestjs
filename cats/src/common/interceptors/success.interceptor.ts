@@ -10,8 +10,8 @@ export class SuccessInterceptor implements NestInterceptor {
       .handle()
       .pipe(
         map((data) => ({
-          ...data,
           success: true,
+          data,
         }))
       );
   }
